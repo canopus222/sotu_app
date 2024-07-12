@@ -63,4 +63,4 @@ SNS、個人のネットワーク、そして RUNTEQ のようなコミュニテ
 - データベース	PostgreSQL
 - バックエンド	Ruby 3.2.2 / Rails 7.1.3
 - API	Maps JavaScript API(Google Map) / YouTube Data API
-- フロントエンド　React
+- フロントエンド　TurboとStimulus(可能であれば段階的にReactへ移行)
