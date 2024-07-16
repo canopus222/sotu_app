@@ -64,3 +64,7 @@ SNS、個人のネットワーク、そして RUNTEQ のようなコミュニテ
 - バックエンド	Ruby 3.2.2 / Rails 7.1.3
 - API	Maps JavaScript API(Google Map) / YouTube Data API
 - フロントエンド　TurboとStimulus(可能であれば段階的にReactへ移行)
+
+## ■ 画面遷移
+https://www.figma.com/design/iewJKSHJ3DcvvrDS1VtBI5/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3Trainspotter.?t=SRsAnM1sRJ6Aucii-0
+
