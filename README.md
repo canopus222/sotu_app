@@ -68,3 +68,5 @@ SNS、個人のネットワーク、そして RUNTEQ のようなコミュニテ
 ## ■ 画面遷移
 https://www.figma.com/design/iewJKSHJ3DcvvrDS1VtBI5/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3Trainspotter.?t=SRsAnM1sRJ6Aucii-0
 
+## ■ ER図
+https://dbdiagram.io/d/6699e3468b4bb5230ec32ca4
