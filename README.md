@@ -69,7 +69,6 @@ SNS、個人のネットワーク、そして RUNTEQ のようなコミュニテ
 https://www.figma.com/design/iewJKSHJ3DcvvrDS1VtBI5/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3Trainspotter.?t=SRsAnM1sRJ6Aucii-0
 
 ## ■ ER図
-[![Image from Gyazo](https://i.gyazo.com/f412986ec634e05525d6f8f1dc751cab.png)](https://gyazo.com/f412986ec634e05525d6f8f1dc751cab)
+[![Image from Gyazo](https://i.gyazo.com/f4145e4ceb982839075cda7d3cca6ebe.png)](https://gyazo.com/f4145e4ceb982839075cda7d3cca6ebe)
 
 https://dbdiagram.io/d/6699e3468b4bb5230ec32ca4
-
