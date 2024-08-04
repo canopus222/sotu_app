@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RUNTEQ BOARD APP</title>
+    <title>Trainspotter.</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,9 +9,13 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+  <body class="min-h-screen bg-neutral relative font-main">
     <%= render 'shared/header' %>
-    <%= yield %>
-    <%= render 'shared/footer' %> <!-- フッターを表示 -->
+
+    <main class="pb-36 md:pb-48">
+      <%= yield %>
+    </main>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>
