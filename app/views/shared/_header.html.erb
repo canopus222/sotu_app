@@ -1,13 +1,13 @@
 <header class="bg-sky-500 text-white shadow-sm flex justify-between p-1">
   <div class="flex flex-col items-center space-x-3 pt-1 md:m-1">
     <!-- ロゴをテキストで「Trainspotter.」として表示 -->
-    <%= link_to "Trainspotter.", '#', class: "text-xl md:text-3xl text-white" %>
+    <%= link_to "Trainspotter.", root_path, class: "text-xl md:text-3xl text-white" %>
   </div>
   <div>
     <ul class="flex justify-end menu menu-horizontal md:m-2">
       <li class="hidden md:block link link-hover"><%= link_to "地図へ", '#' %></li>
       <li class="hidden md:block link link-hover"><%= link_to "アカウント登録", new_user_path %></li>
-      <li class="hidden md:block link link-hover"><%= link_to "ログイン", '#' %></li>
+      <li class="hidden md:block link link-hover"><%= link_to "ログイン", login_path %></li>
       <li class="md:hidden">
         <div class="dropdown dropdown-bottom dropdown-end">
           <div tabindex="0" role="button">
