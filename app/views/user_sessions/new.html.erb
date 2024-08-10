@@ -5,23 +5,24 @@
       <h1 class="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight dark:text-neutral-200 text-center mb-8">
         ログイン
       </h1>
-      
-      <%= form_with url: login_path do |f| %>
+
+      <%= form_with url: login_path, local: true do |f| %>
         <div class="mb-4">
-          <label for="user-email" class="block text-sm font-medium dark:text-white">メールアドレス</label>
-          <input type="email" id="user-email" class="py-3 px-4 block w-full border-2 border-blue-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="メールアドレス">
+          <%= f.label :email, 'メールアドレス', class: 'block text-sm font-medium dark:text-white' %>
+          <%= f.email_field :email, id: 'user-email', class: 'py-3 px-4 block w-full border-2 border-blue-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600', placeholder: 'メールアドレス' %>
         </div>
         <div class="mb-4">
-          <label for="user-password" class="block text-sm font-medium dark:text-white">パスワード</label>
-          <input type="password" id="user-password" class="py-3 px-4 block w-full border-2 border-blue-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="パスワード">
+          <%= f.label :password, 'パスワード', class: 'block text-sm font-medium dark:text-white' %>
+          <%= f.password_field :password, id: 'user-password', class: 'py-3 px-4 block w-full border-2 border-blue-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600', placeholder: 'パスワード' %>
         </div>
         <div class="grid">
-          <button type="submit" class="py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">ログイン</button>
+          <%= f.submit 'ログイン', class: 'py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none' %>
         </div>
       <% end %>
+      
       <div class='text-center'>
-        <%= link_to '登録ページへ', new_user_path %>
-        <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
+        <%= link_to '登録ページへ', new_user_path, class: 'text-blue-600 hover:text-blue-700 transition duration-100' %>
+        <%= link_to 'パスワードをお忘れの方はこちら', '#', class: 'text-blue-600 hover:text-blue-700 transition duration-100' %>
       </div>
 
       <div class="py-6 flex items-center text-sm text-gray-400 uppercase before:flex-1 before:border-t before:me-6 after:flex-1 after:border-t after:ms-6 dark:text-neutral-500 dark:before:border-neutral-700 dark:after:border-neutral-700">Or</div>
@@ -36,8 +37,7 @@
           </svg>
           Sign up with Google
         </button>
-      </div>      
+      </div>
     </div>
   </div>
 </div>
-

@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   root 'static_pages#top'
 
-  resources :users, only: %i[new create]
+  # 新規ユーザー作成ページのルーティング
+  get 'users/new', to: 'users#new', as: 'new_user'
+  
+  # ユーザー作成のためのPOSTリクエストのルーティング
+  post 'users', to: 'users#create', as: 'users'
+  
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
+  delete 'logout', to: 'user_sessions#destroy'
 
   resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
