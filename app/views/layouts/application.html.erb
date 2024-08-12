@@ -15,10 +15,10 @@
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
+    <%= render 'shared/flash_message' %>
     <main class="pb-36 md:pb-48">
       <%= yield %>
     </main>
-
     <%= render 'shared/footer' %>
   </body>
 </html>
