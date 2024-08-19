@@ -6,10 +6,19 @@ Rails.application.routes.draw do
   
   # ユーザー作成のためのPOSTリクエストのルーティング
   post 'users', to: 'users#create', as: 'users'
-  
+
+  # ログインログアウト
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
+
+  # パスワードリセット
+  resources :password_resets, only: %i[new create edit update]
+
+  # Google 認証
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
   resources :tasks
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -20,4 +29,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  # 開発環境でのメール確認
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
