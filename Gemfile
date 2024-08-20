@@ -71,4 +71,7 @@ group :test do
 end
 
 # 認証
-gem 'sorcery' 
+gem 'sorcery'
+
+# 本番と開発環境のcallback_url適用
+gem 'config'

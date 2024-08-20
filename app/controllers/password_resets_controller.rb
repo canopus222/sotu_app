@@ -9,12 +9,14 @@ class PasswordResetsController < ApplicationController
   def create
     # メールアドレスからユーザーを特定
     @user = User.find_by(email: params[:email])
-
-    # ユーザが見つかれば、トークンを生成し、再設定用のメールを送信
-    @user&.deliver_reset_password_instructions!
-
-    # メールアドレスが存在しなくても、フラッシュメッセージは送信（存在していないという情報を与えない）
-    redirect_to login_path, notice: 'メールを送信しました'
+    if @user
+      # ユーザが見つかれば、トークンを生成し、再設定用のメールを送信
+      @user&.deliver_reset_password_instructions!
+      redirect_to login_path, notice: 'メールを送信しました'
+    else
+      flash.now[:alert] = 'メールアドレスが見つかりません'
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # パスワードリセットフォーム
@@ -49,7 +51,12 @@ class PasswordResetsController < ApplicationController
       redirect_to login_path, notice: 'パスワードを再設定しました'
     else
       # 再設定画面を再表示
+      flash.now[:alert] = '再設定に失敗しました'
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def password_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 end
