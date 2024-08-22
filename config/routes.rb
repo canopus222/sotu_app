@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # ユーザー作成のためのPOSTリクエストのルーティング
   post 'users', to: 'users#create', as: 'users'
 
+  # マイページ表示・編集・削除・更新
+  resource :mypage, only: %i[show edit destroy update]
+
   # ログインログアウト
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'

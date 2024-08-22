@@ -75,3 +75,6 @@ gem 'sorcery'
 
 # 本番と開発環境のcallback_url適用
 gem 'config'
+
+# ファイルアップロード機能
+gem 'carrierwave', '~> 3.0'
