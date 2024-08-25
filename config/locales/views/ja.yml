@@ -1,0 +1,37 @@
+ja:
+  defaults:
+    flash_message:
+      updated: "%{item}が更新されました"
+      not_updated: "%{item}の更新に失敗しました"
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+    flash:
+      create:
+        success: "ログインに成功しました"
+        failure: "ログインできません。メールアドレス・パスワードをご確認ください。"
+      destroy:
+        success: "ログアウトしました"
+  users:
+    new:
+      title: ユーザー登録
+      to_login_page: ログインページへ
+    flash:
+      create:
+        success: "会員登録が完了しました"
+        failure: "会員登録に失敗しました"
+      destroy:
+        success: "アカウントが削除されました"
+  header:
+    login: ログイン
+    logout: ログアウト
+    profile: プロフィール

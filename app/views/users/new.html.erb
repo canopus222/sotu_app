@@ -8,6 +8,7 @@
 
       <!-- Form -->
       <%= form_with model: @user, url: users_path, data: { turbo: false } do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-4">
           <%= f.label :name, '名前', class: 'block text-sm font-medium dark:text-white' %>
           <%= f.text_field :name, class: 'py-3 px-4 block w-full border-2 border-blue-300 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600', placeholder: '名前' %>

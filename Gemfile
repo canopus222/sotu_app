@@ -78,3 +78,6 @@ gem 'config'
 
 # ファイルアップロード機能
 gem 'carrierwave', '~> 3.0'
+
+# 多言語対応
+gem 'rails-i18n', '~> 7.0', '>= 7.0.9'

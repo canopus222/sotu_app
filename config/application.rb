@@ -28,6 +28,9 @@ module Myapp
       g.helper false             # helper ファイルを作成しない
       g.test_framework false     # test ファイルを作成しない
       g.skip_routes true         # ルーティングの記述を作成しない
-    end    
+    end  
+    
+    # デフォルト言語設定
+    config.i18n.default_locale = :ja
   end
 end

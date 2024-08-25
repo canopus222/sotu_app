@@ -8,11 +8,17 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, success: '会員登録が完了しました'
+      redirect_to root_path, success: t('users.flash.create.success')
     else
-      flash.now[:danger] = '会員登録に失敗しました'
+      flash.now[:danger] = t('users.flash.create.failure')
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path, success: t('users.flash.destroy.success')
   end
 
   private
