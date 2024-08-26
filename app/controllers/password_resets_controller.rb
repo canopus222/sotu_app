@@ -43,15 +43,16 @@ class PasswordResetsController < ApplicationController
       return
     end
 
-    # バリデーションチェック
+    # パスワードとパスワード確認をparamsから取得
+    @user.password = password_params[:password]
     @user.password_confirmation = password_params[:password_confirmation]
-    # トークンをクリアして、パスワードを更新
-    if @user.change_password(password_params[:password])
+    # バリデーションを手動で行う
+    if @user.valid?(:reset_password) && @user.change_password(@user.password)
       # ログインページに遷移し、フラッシュメッセージを表示
       redirect_to login_path, notice: 'パスワードを再設定しました'
     else
       # 再設定画面を再表示
-      flash.now[:alert] = '再設定に失敗しました'
+      flash.now[:alert] = '新しいパスワードに不備があります。確認してください'
       render :edit, status: :unprocessable_entity
     end
   end
