@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_22_053232) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_30_045325) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,45 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_053232) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["provider", "uid"], name: "index_authentications_on_provider_and_uid"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_favorites_on_post_id"
+    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "lines", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "station_id", null: false
+    t.bigint "line_id", null: false
+    t.string "photo_image", null: false
+    t.string "location", null: false
+    t.datetime "shooting_time", null: false
+    t.text "comment", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_id"], name: "index_posts_on_line_id"
+    t.index ["prefecture_id"], name: "index_posts_on_prefecture_id"
+    t.index ["station_id"], name: "index_posts_on_station_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "prefectures", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string "name", null: false
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -45,4 +84,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_22_053232) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "posts"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "posts", "lines"
+  add_foreign_key "posts", "prefectures"
+  add_foreign_key "posts", "stations"
+  add_foreign_key "posts", "users"
 end

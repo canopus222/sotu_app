@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
+  # ユーザーが複数の投稿を持つ（Postモデルとの関連）
+  has_many :posts, dependent: :destroy  # ユーザーが削除されたら関連する投稿も削除される
+
   validates :password, length: { minimum: 6 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
