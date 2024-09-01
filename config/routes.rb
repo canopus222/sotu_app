@@ -17,6 +17,17 @@ Rails.application.routes.draw do
   # マイページ表示・編集・更新
   resource :mypage, only: %i[show edit update]
 
+  # ポスト関連
+  resources :posts do
+    collection do
+      get 'search'
+      get 'favorite'
+    end
+  end
+
+  # お気に入り関連
+  resources :favorites, only: %i[index create destroy]
+
   # ログインログアウト
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
