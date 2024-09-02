@@ -2,6 +2,16 @@ class Post < ApplicationRecord
   # photo_imageという属性にファイルアップローダーをマウント（CarrierWaveを使用）
   mount_uploader :photo_image, PhotoImageUploader
 
+  # Ransackで検索可能な属性（カラム）を指定
+  def self.ransackable_attributes(auth_object = nil)
+    ["comment", "content", "location", "photo_image", "prefecture_id", "shooting_time", "station_id", "line_id", "user_id"]
+  end
+
+  # Ransackで検索可能な関連を指定
+  def self.ransackable_associations(auth_object = nil)
+    ["user", "prefecture", "station", "line", "favorites"]
+  end
+
   # モデル間の関連を定義
   belongs_to :user  # PostはUserに属している
   belongs_to :prefecture  # PostはPrefecture（都道府県）に属している
@@ -18,13 +28,4 @@ class Post < ApplicationRecord
   validates :shooting_time, presence: true  # 撮影時間は必須
   validates :comment, presence: true, length: { maximum: 250 }  # コメントは必須で、最大250文字まで
 
-  # 検索用のスコープ
-  scope :search_by_prefecture, ->(prefecture_id) { where(prefecture_id: prefecture_id) if prefecture_id.present? }
-  # 都道府県IDで検索
-
-  scope :search_by_station, ->(station_name) { where('station.name LIKE ?', "%#{station_name}%") if station_name.present? }
-  # 駅名で部分一致検索
-
-  scope :search_by_line, ->(line_name) { where('line.name LIKE ?', "%#{line_name}%") if line_name.present? }
-  # 路線名で部分一致検索
 end

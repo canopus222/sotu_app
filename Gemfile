@@ -81,3 +81,9 @@ gem 'carrierwave', '~> 3.0'
 
 # 多言語対応
 gem 'rails-i18n', '~> 7.0', '>= 7.0.9'
+
+# 検索機能
+gem 'ransack'
+
+# ページネーション
+gem 'kaminari'
