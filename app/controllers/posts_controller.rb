@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def new
     @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def index
