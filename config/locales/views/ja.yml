@@ -1,6 +1,8 @@
 ja:
   defaults:
     flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
       updated: "%{item}が更新されました"
       not_updated: "%{item}の更新に失敗しました"
   helpers:
