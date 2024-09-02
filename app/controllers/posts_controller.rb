@@ -5,8 +5,7 @@ class PostsController < ApplicationController
   skip_before_action :require_login, only: %i[index show]
 
   def new
-    @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+    @post = Post.new
   end
 
   def index

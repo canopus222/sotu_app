@@ -8,7 +8,7 @@
           <div class="w-full px-4 md:w-1/2">
             <div class="mb-4">
               <%= f.label :line, "路線名", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.text_field :line, class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "お菓子名を入力", autocomplete: "name" %>
+              <%= f.text_field :line, class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "路線名を入力", autocomplete: "name" %>
             </div>
             <div class="mb-4">
               <%= f.label :photo_image, "写真", class: "mb-1 inline-block text-lg text-gray-800" %>
@@ -21,15 +21,15 @@
             </div>
             <div class="mb-4">
               <%= f.label :station, "駅名", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.text_field :station, id: "station", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "お店の名前を入力" %>
+              <%= f.text_field :station, id: "station", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "駅名を入力" %>
             </div>
             <div class="mb-4">
               <%= f.label :location, "撮影場所", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.text_field :location, id: "location", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "お店の住所を入力", autocomplete: "address" %>
+              <%= f.text_field :location, id: "location", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "ホーム先頭など", autocomplete: "address" %>
             </div>
             <div class="mb-4">
               <%= f.label :shooting_time, "おすすめ撮影時間", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.text_field :shooting_time, id: "shooting_time", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "お店の住所を入力", autocomplete: "address" %>
+              <%= f.text_field :shooting_time, id: "shooting_time", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "14時頃など", autocomplete: "address" %>
             </div>
           </div>
           <div class="w-full px-4 md:w-1/2">
@@ -37,7 +37,7 @@
               <%= f.label :comment, "コメント", class: "mb-2 inline-block text-lg text-gray-800" %>
               <%= f.text_area :comment, rows: 3, class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "コメントを入力" %>
             </div>
-            <%= f.submit "投稿する", class: "w-full rounded-lg bg-customred px-8 py-3 mt-3 text-center font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base", data: { turbo: false }  %>
+            <%= f.submit "投稿する", class: "w-full rounded-lg border bg-gray-50 px-8 py-3 mt-3 text-center font-semibold text-gray-800 outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base", data: { turbo: false } %>
           </div>
         </div>
       </div>
