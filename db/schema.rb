@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_30_045325) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_03_063758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_045325) do
 
   create_table "stations", force: :cascade do |t|
     t.string "name", null: false
+    t.bigint "line_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.index ["line_id"], name: "index_stations_on_line_id"
+    t.index ["prefecture_id"], name: "index_stations_on_prefecture_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -90,4 +94,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_30_045325) do
   add_foreign_key "posts", "prefectures"
   add_foreign_key "posts", "stations"
   add_foreign_key "posts", "users"
+  add_foreign_key "stations", "lines"
+  add_foreign_key "stations", "prefectures"
 end

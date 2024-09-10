@@ -6,6 +6,9 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @stations = Station.all
+    @prefectures = Prefecture.all
+    @lines = Line.all
   end
 
   def index
@@ -15,6 +18,13 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    # 駅名や路線名からIDを抽出する処理を追加
+    station_name = params[:post][:station_id]
+    line_name = params[:post][:line_id]
+    
+    @post.station = Station.find_by(name: station_name)
+    @post.line = Line.find_by(name: line_name)
+  
     if @post.save
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
     else

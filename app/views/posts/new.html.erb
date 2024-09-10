@@ -8,18 +8,40 @@
           <div class="w-full px-4 md:w-1/2">
 
             <div class="mb-4">
-              <%= f.label :prefecture_id, "都道府県", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, { prompt: "都道府県を選択" }, { class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring" } %>
+              <%= f.label :station_id, "駅名※一致する候補から選択", class: "mb-1 inline-block text-lg text-gray-800", for: 'station_input' %>
+              <%= f.text_field :station_id, id: 'station_input', autocomplete: "on", list: "stations", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring" %>
+              <datalist id="stations">
+                <% if @stations %>
+                  <% @stations.each do |station| %>
+                    <option value="<%= "#{station.name} (ID: #{station.id})" %>"></option>
+                  <% end %>
+                <% else %>
+                  <option value="">No stations available</option>
+                <% end %>
+              </datalist>
             </div>
 
             <div class="mb-4">
-              <%= f.label :line_id, "路線名", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.collection_select :line_id, [], :id, :name, { prompt: "路線名を選択" }, { id: 'line_select', class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", onchange: "updateStations()" } %>
-            </div>
-
+              <%= f.label :prefecture_id, "都道府県", class: "mb-1 inline-block text-lg text-gray-800", for: "prefecture_select" %>
+              <% if @prefectures.present? %>
+                <%= f.collection_select :prefecture_id, @prefectures, :id, :name, { prompt: "都道府県を選択" }, { id: "prefecture_select", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring" } %>
+              <% else %>
+                <p>都道府県を選択してください</p>
+              <% end %>
+           </div>
+      
             <div class="mb-4">
-              <%= f.label :station_id, "駅名", class: "mb-1 inline-block text-lg text-gray-800" %>
-              <%= f.collection_select :station_id, [], :id, :name, { prompt: "駅名を選択" }, { id: 'station_select', class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring" } %>
+              <%= f.label :line_id, "路線名※一致する候補から選択", class: "mb-1 inline-block text-lg text-gray-800", for: 'line_input' %>
+              <%= f.text_field :line_id, id: 'line_input', autocomplete: "on", list: "lines", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring" %>
+              <datalist id="lines">
+                <% if @lines %>
+                  <% @lines.each do |line| %>
+                    <option value="<%= "#{line.name} (ID: #{line.id})" %>"></option>
+                  <% end %>
+                <% else %>
+                 <option value="">No lines available</option>
+                <% end %>
+              </datalist>
             </div>
 
             <div class="mb-4">
@@ -29,11 +51,11 @@
             </div>
 
             <div class="mb-4">
-              <%= f.label :location, "撮影場所", class: "mb-1 inline-block text-lg text-gray-800" %>
+              <%= f.label :location, "撮影場所", class: "mb-1 inline-block text-lg text-gray-800", for: "location" %>
               <%= f.text_field :location, id: "location", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "2番ホーム先頭など", autocomplete: "address" %>
             </div>
             <div class="mb-4">
-              <%= f.label :shooting_time, "おすすめ撮影時間", class: "mb-1 inline-block text-lg text-gray-800" %>
+              <%= f.label :shooting_time, "おすすめ撮影時間", class: "mb-1 inline-block text-lg text-gray-800", for: "shooting_time" %>
               <%= f.text_field :shooting_time, id: "shooting_time", class: "w-full rounded border bg-gray-50 px-3 py-3 text-gray-800 outline-none ring-customorange ring-opacity-40 transition duration-100 focus:ring", placeholder: "14時頃など", autocomplete: "address" %>
             </div>
 

@@ -89,3 +89,4 @@ gem 'ransack'
 gem 'kaminari'
 
 gem 'mini_magick'
+

@@ -8,5 +8,5 @@ class Line < ApplicationRecord
   scope :search_by_name, ->(query) { where('name LIKE ?', "%#{query}%") }
 
   has_many :posts
-  has_many :stations
+  has_many :stations, dependent: :destroy  # 路線が削除されたら関連する駅も削除
 end

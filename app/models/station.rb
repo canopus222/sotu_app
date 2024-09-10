@@ -8,4 +8,6 @@ class Station < ApplicationRecord
   scope :search_by_name, ->(query) { where('name LIKE ?', "%#{query}%") }
 
   has_many :posts
+  belongs_to :line
+  belongs_to :prefecture
 end
