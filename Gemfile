@@ -87,3 +87,6 @@ gem 'ransack'
 
 # ページネーション
 gem 'kaminari'
+
+gem 'mini_magick'
+

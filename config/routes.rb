@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # マイページ表示・編集・更新
   resource :mypage, only: %i[show edit update]
-
+  
   # ポスト関連
   resources :posts do
     collection do

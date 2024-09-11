@@ -6,9 +6,13 @@
   <!-- 掲示板一覧 -->
   <div class="my-6 mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 max-w-4xl">
     <% if @posts.present? %>
+      <!-- render @posts によって、各投稿に対して app/views/posts/_post.html.erb が呼び出され、部分テンプレートとして使われます -->
       <%= render @posts %>
     <% else %>
       <p>投稿がありません</p>
     <% end %>
+  </div>
+  <div class="text-xl font-bold text-center pt-6 text-gray-800">
+    <%= paginate @posts %>
   </div>
 </div>
