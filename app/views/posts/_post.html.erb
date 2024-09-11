@@ -1,27 +1,30 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="post-id-<%= post.id %>">
-    <div class="card">
-      <%= image_tag "post_placeholder.png", class: "card-img-top", width: "300", height:"200" %>
-      <div class="card-body">
-        <div class="d-flex">
-          <h4 class="card-title">
-            <%= link_to post.title, '#' %>
-          </h4>
-          <div class='ms-auto'>
-            <%= link_to '#', id: 'button-edit-#{post.id}' do %>
-              <i class="bi bi-pencil-fill"></i>
-            <% end %>
-            <%= link_to '#', id: 'button-delete-#{post.id}', method: :delete, data: {confirm: ''} do %>
-              <i class="bi bi-trash-fill"></i>
-            <% end %>
+<div class="card w-full m-auto shadow-xl max-w-xs hover:bg-base-200" border border-black">
+  <%= link_to post_path(post), data: { turbo: false } do %>
+    <div class="flex flex-col">
+      <!-- アバターとユーザー名 -->
+      <div class="flex items-start p-4">
+        <div class="avatar m-4">
+          <div class="w-12 rounded-full border border-gray-800"> <!-- 少し角が丸い黒い枠 -->
+            <%= image_tag post.user.avatar_url, alt: "アバター" %>
           </div>
         </div>
-        <ul class="list-inline">
-          <li><i class="bi bi-person"></i><%= post.user.decorate.full_name %></li>
-          <li><i class="bi bi-calendar"></i><%= l post.created_at, format: :short %></li>
-        </ul>
-        <p class="card-text">本文</p>
+        <div class="my-auto">
+          <%= post.user.name %>
+        </div>
+      </div>
+
+      <!-- 投稿画像と詳細情報 -->
+      <div class="flex flex-col">
+        <%= image_tag post.photo_image.thumb.url, alt: "鉄道の画像", class: "w-full object-cover", width: "300", height:"200" %>
+        <div class="p-2">
+          <!-- 投稿の詳細情報 -->
+          <div class="flex flex-col mt-2">
+            <span class="text-sm text-gray-600">路線名: <%= post.line.name %></span>
+            <span class="text-sm text-gray-600">駅名: <%= post.station.name %></span>
+            <span class="text-sm text-gray-600">都道府県: <%= post.prefecture.name %></span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>

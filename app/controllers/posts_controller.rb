@@ -18,12 +18,17 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    # 駅名や路線名からIDを抽出する処理を追加
-    station_name = params[:post][:station_id]
-    line_name = params[:post][:line_id]
-    
-    @post.station = Station.find_by(name: station_name)
-    @post.line = Line.find_by(name: line_name)
+    # 駅名や路線名からIDを抽出する処理
+    station_name = params[:post][:station_id].split(" (ID: ").first # 駅名を取得
+    line_name = params[:post][:line_id].split(" (ID: ").first # 路線名を取得
+  
+    # 駅名からIDを取得
+    station = Station.find_by(name: station_name)
+    line = Line.find_by(name: line_name)
+  
+    # IDが見つかった場合に設定
+    @post.station = station if station
+    @post.line = line if line
   
     if @post.save
       redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
