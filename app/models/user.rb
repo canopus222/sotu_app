@@ -18,4 +18,8 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
   validates :password, presence: true, on: :reset_password
   validates :password_confirmation, presence: true, on: :reset_password
+
+  def own?(object)
+    id == object&.user_id
+  end
 end

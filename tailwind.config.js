@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       colors: {
         'custom-white': '#ffffff', // 白色を追加
+        'custom-red': '#FF0000', // カスタム赤色を追加
+        'custom-black': '#000000', // カスタム黒色を追加
+        'custom-light-blue': '#ADD8E6', // カスタム水色
       },
     },
   },

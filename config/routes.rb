@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resource :mypage, only: %i[show edit update]
   
   # ポスト関連
-  resources :posts do
+  resources :posts, only: %i[new create index show edit update destroy] do
     collection do
       get 'search'
       get 'favorite'
