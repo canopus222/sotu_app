@@ -47,12 +47,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy!
+    redirect_to posts_path, success: t('defaults.flash_message.deleted', item: Post.model_name.human)
   end
 
   def favorites
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to posts_path, success: t('defaults.flash_message.updated', item: Post.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.flash_message.not_updated', item: Post.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
