@@ -43,15 +43,24 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @post = current_user.posts.find(params[:id])
   end
 
   def destroy
+    @post.destroy!
+    redirect_to posts_path, success: t('defaults.flash_message.deleted', item: Post.model_name.human)
   end
 
   def favorites
   end
 
   def update
+    if @post.update(post_params)
+      redirect_to posts_path, success: t('defaults.flash_message.updated', item: Post.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.flash_message.not_updated', item: Post.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   private
@@ -67,7 +76,6 @@ class PostsController < ApplicationController
       :prefecture_id,      # 都道府県のID
       :comment,            # 投稿に対するコメント
       :location,           # 撮影場所
-      :shooting_time,      # 撮影時間
       :station_id,         # 駅名のID
       :line_id,            # 路線名のID
       :photo_image_cache   # 画像キャッシュ（画像の再利用のため）

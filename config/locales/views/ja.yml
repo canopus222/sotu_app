@@ -5,6 +5,9 @@ ja:
       not_created: "%{item}を作成出来ませんでした"
       updated: "%{item}が更新されました"
       not_updated: "%{item}の更新に失敗しました"
+      deleted: "%{item}を削除しました"
+      require_login: ログインしてください
+      delete_confirm: "%{item}を削除しますか？"
   helpers:
     submit:
       create: 登録
@@ -37,3 +40,13 @@ ja:
     login: ログイン
     logout: ログアウト
     profile: プロフィール
+  posts:
+    index:
+      title: 投稿一覧
+    new:
+      title: 新規投稿
+    show:
+      title: 投稿詳細
+    edit:
+      title: 投稿編集
+

@@ -22,7 +22,6 @@ class Post < ApplicationRecord
   # バリデーション（データの保存前にチェックするルール）
   validates :photo_image, presence: true  # 画像のアップロードは必須
   validates :location, presence: true  # 撮影場所は必須
-  validates :shooting_time, presence: true  # 撮影時間は必須
   validates :comment, presence: true, length: { maximum: 250 }  # コメントは必須で、最大250文字まで
 
 end
