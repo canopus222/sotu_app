@@ -68,7 +68,6 @@ class PostsController < ApplicationController
       :prefecture_id,      # 都道府県のID
       :comment,            # 投稿に対するコメント
       :location,           # 撮影場所
-      :shooting_time,      # 撮影時間
       :station_id,         # 駅名のID
       :line_id,            # 路線名のID
       :photo_image_cache   # 画像キャッシュ（画像の再利用のため）
