@@ -49,4 +49,12 @@ ja:
       title: 投稿詳細
     edit:
       title: 投稿編集
+    likes:
+      title: お気に入り一覧
+      no_result: お気に入り写真はありません
+  likes:
+    create:
+      success: お気に入り追加しました
+    destroy:
+      success: 解除しました
 

@@ -27,5 +27,10 @@
       <span class="mr-2 text-sm text-gray-600 sm:text-base">都道府県：</span>
       <span class="text-sm text-gray-800 sm:text-base"><%= post.prefecture.name %></span>
     </div>
+    <% if logged_in? %>
+      <div class="m-4">
+        <%= render 'posts/favorite_buttons', { post: post } %>
+      </div>
+    <% end %>
   </div>
 </div>

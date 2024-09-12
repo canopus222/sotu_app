@@ -40,8 +40,8 @@
             </li>
             <li><%= link_to "マイページ", mypage_path %></li>
             <li class="md:hidden"><%= link_to "投稿する", new_post_path %></li>
-            <li><%= link_to "いいねスポット一覧", '#' %></li>
-            <li><%= link_to "投稿スポット一覧", posts_path %></li>
+            <li><%= link_to "おきにいり一覧", favorites_path %></li>
+            <li><%= link_to "投稿一覧", posts_path %></li>
             <li class="md:hidden"><%= link_to "ログアウト", logout_path, data: { turbo_method: :delete } %></li>
           </ul>
         </div>
