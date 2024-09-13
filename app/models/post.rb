@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   # Ransackで検索可能な属性（カラム）を指定
   def self.ransackable_attributes(auth_object = nil)
-    ["comment", "content", "location", "photo_image", "prefecture_id", "shooting_time", "station_id", "line_id", "user_id"]
+    ["comment", "content", "location", "photo_image", "prefecture_id", "station_id", "line_id", "user_id"]
   end
 
   # Ransackで検索可能な関連を指定
