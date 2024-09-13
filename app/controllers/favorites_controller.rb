@@ -9,10 +9,14 @@ class FavoritesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     current_user.favorite(@post)
+    flash[:notice] = t('favorites.create.success') # フラッシュメッセージの設定
+    redirect_to posts_path
   end
 
   def destroy
     @post = current_user.favorites.find(params[:id]).post
     current_user.unfavorite(@post)
+    flash[:notice] = t('favorites.destroy.success') # フラッシュメッセージの設定
+    redirect_to posts_path
   end
 end

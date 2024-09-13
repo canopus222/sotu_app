@@ -52,7 +52,7 @@ ja:
     likes:
       title: お気に入り一覧
       no_result: お気に入り写真はありません
-  likes:
+  favorites:
     create:
       success: お気に入り追加しました
     destroy:
