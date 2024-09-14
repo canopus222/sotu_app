@@ -1,17 +1,16 @@
 <div class="w-5/6 mx-auto my-28 max-w-screen-xl">
-  <div class="text-2xl font-bold text-center text-gray-800 mb-8">Posts 一覧</div>
+  <div class="text-2xl font-bold text-center text-gray-800 mb-8">My Posts 一覧</div>
 
   <!-- 検索フォーム -->
   <div class="mb-10 mx-auto max-w-4xl">
     <%= render 'shared/search_form', q: @q %>
   </div>
 
-  <!-- 投稿一覧 -->
+  <!-- 自分の投稿一覧 -->
   <div class="flex-auto">
     <div class="max-w-screen-3xl mx-auto">
       <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 mt-4">
         <% if @posts.present? %>
-          <!-- render @posts によって、各投稿に対して app/views/posts/_post.html.erb が呼び出され、部分テンプレートとして使われます -->
           <%= render @posts %>
         <% else %>
           <p>投稿がありません</p>
@@ -23,3 +22,4 @@
     </div>
   </div>
 </div>
+

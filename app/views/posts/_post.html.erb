@@ -10,9 +10,11 @@
       <div class="my-auto">
         <%= post.user.name %>
       </div>
-   </div>
+    </div>
     <div class="my-auto">
-      <%= render 'posts/favorite_buttons', post: post %>
+      <% unless post.user_id == current_user.id %> <!-- 自分の投稿でない場合のみ表示 -->
+        <%= render 'posts/favorite_buttons', post: post %>
+      <% end %>
     </div>
   </div>
 
