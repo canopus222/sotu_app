@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # ユーザー関連のルーティングを追加
   resources :users, only: %i[new create destroy]
 
+  # マイポスト
+  resources :my_posts, only: [:index]
+
   # マイページ表示・編集・更新
   resource :mypage, only: %i[show edit update]
   

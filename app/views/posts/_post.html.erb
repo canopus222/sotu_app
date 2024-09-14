@@ -1,13 +1,20 @@
 <div class="overflow-hidden rounded-lg bg-white shadow-md ">
   <!-- アバターとユーザー名 -->
-  <div class="flex items-start p-4">
-    <div class="avatar m-4">
-      <div class="w-12 rounded-full border border-gray-800"> <!-- 少し角が丸い黒い枠 -->
-        <%= image_tag post.user.avatar_url, alt: "アバター" %>
+  <div class="flex items-start justify-between pt-4 pb-4 px-2">
+    <div class="flex items-start">
+      <div class="avatar m-2">
+        <div class="w-12 rounded-full border border-gray-800"> <!-- 少し角が丸い黒い枠 -->
+          <%= image_tag post.user.avatar_url, alt: "アバター" %>
+        </div>
+      </div>
+      <div class="my-auto">
+        <%= post.user.name %>
       </div>
     </div>
     <div class="my-auto">
-      <%= post.user.name %>
+      <% unless post.user_id == current_user.id %> <!-- 自分の投稿でない場合のみ表示 -->
+        <%= render 'posts/favorite_buttons', post: post %>
+      <% end %>
     </div>
   </div>
 
@@ -27,10 +34,5 @@
       <span class="mr-2 text-sm text-gray-600 sm:text-base">都道府県：</span>
       <span class="text-sm text-gray-800 sm:text-base"><%= post.prefecture.name %></span>
     </div>
-    <% if logged_in? %>
-      <div class="m-4">
-        <%= render 'posts/favorite_buttons', { post: post } %>
-      </div>
-    <% end %>
   </div>
 </div>
