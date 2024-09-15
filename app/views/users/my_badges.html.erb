@@ -1,0 +1,26 @@
+<h1>マイバッジ</h1>
+<div class="badges">
+  <% @user = current_user %>
+  <% badge_count = @user.posts_count %>
+  <% badges = ["", "", "", "", "", ""] %> <!-- バッジの配列 -->
+
+  <!-- 投稿数に応じてバッジを設定 -->
+  <% if badge_count >= 30 %>
+    badges[4] = "⭐️" # 30バッジ
+  <% elsif badge_count >= 20 %>
+    badges[3] = "⭐️" # 20バッジ
+  <% elsif badge_count >= 10 %>
+    badges[2] = "⭐️" # 10バッジ
+  <% elsif badge_count >= 5 %>
+    badges[1] = "⭐️" # 5バッジ
+  <% elsif badge_count >= 1 %>
+    badges[0] = "⭐️" # 1バッジ
+  <% end %>
+
+  <!-- バッジを横並びで表示 -->
+  <div class="badge-container">
+    <% badges.each do |badge| %>
+      <span class="badge"><%= badge.present? ? badge : "🌟" %></span>
+    <% end %>
+  </div>
+</div>

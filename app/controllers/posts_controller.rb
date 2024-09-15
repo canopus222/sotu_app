@@ -31,7 +31,18 @@ class PostsController < ApplicationController
     @post.line = line if line
   
     if @post.save
-      redirect_to posts_path, success: t('defaults.flash_message.created', item: Post.model_name.human)
+      # 投稿数を取得
+      post_count = current_user.posts_count
+  
+      # 通常の投稿メッセージ
+      flash[:success] = t('defaults.flash_message.created', item: Post.model_name.human)
+  
+      # 特定の投稿数に達したときに追加メッセージを表示
+      if [1, 5, 10, 20, 30].include?(post_count)
+        flash[:success] += " マイバッジページを確認しよう！"
+      end
+  
+      redirect_to posts_path
     else
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity

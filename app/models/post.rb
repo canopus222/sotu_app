@@ -24,4 +24,13 @@ class Post < ApplicationRecord
   validates :location, presence: true  # 撮影場所は必須
   validates :comment, presence: true, length: { maximum: 250 }  # コメントは必須で、最大250文字まで
 
+  # 投稿が作成された後に実行される処理
+  after_create :increment_user_posts_count
+
+  private
+
+  # 投稿が作成されたユーザーの`posts_count` を1増やすために使用
+  def increment_user_posts_count
+    user.increment!(:posts_count)
+  end
 end

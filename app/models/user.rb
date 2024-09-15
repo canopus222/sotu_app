@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
+  has_many :badges
+  
   # Google 認証
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
