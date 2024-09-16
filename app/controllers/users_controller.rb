@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     redirect_to root_path, success: t('users.flash.destroy.success')
   end
 
+  def my_badges
+    # @userはビュー内で使用するために必要
+    @user = current_user
+  end
+
   private
 
   def user_params

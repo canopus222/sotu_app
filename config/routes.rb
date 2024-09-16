@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   # お気に入り関連
   resources :favorites, only: %i[index create destroy]
 
+  # マイバッジ
+  get 'my_badges', to: 'badges#my_badges', as: 'my_badges'
+
   # ログインログアウト
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
