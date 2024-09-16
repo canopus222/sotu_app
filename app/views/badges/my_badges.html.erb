@@ -1,6 +1,6 @@
 <div class="w-5/6 mx-auto my-28 max-w-screen-xl">
   <div class="text-2xl font-bold text-center text-gray-800 mb-8">マイバッジ</div>
-  <div class="grid grid-cols-1 lg:grid-cols-6 gap-5 mt-10 mb-20 justify-items-center">
+  <div class="flex flex-wrap justify-center items-center gap-4">
 
     <% post_count = current_user.posts.count %>
 
@@ -8,26 +8,30 @@
     <% images = ['before.png', 'before.png', 'before.png', 'before.png', 'before.png'] %>
 
     <%# 投稿数に応じて画像を変更 %>
-    <% if post_count >= 1 %>
-      images[0] = 'trainstar1.png'
+    <% if current_user.posts.count >= 1 %>
+      <%= image_tag 'trainstar1.png', alt: 'Trainstar 1 Badge', size: '150x150' %> 
+    <% else %>
+      <%= image_tag 'before.png', alt: 'Before Badge', size: '150x150' %> 
     <% end %>
-    <% if post_count >= 5 %>
-      images[1] = 'trainstar2.png'
+    <% if current_user.posts.count >= 5 %>
+      <%= image_tag 'trainstar2.png', alt: 'Trainstar 2 Badge', size: '150x150' %> 
+    <% else %>
+      <%= image_tag 'before.png', alt: 'Before Badge', size: '150x150' %> 
     <% end %>
-    <% if post_count >= 10 %>
-      images[2] = 'trainstar3.png'
+    <% if current_user.posts.count >= 10 %>
+      <%= image_tag 'trainstar3.png', alt: 'Trainstar 3 Badge', size: '150x150' %> 
+    <% else %>
+      <%= image_tag 'before.png', alt: 'Before Badge', size: '150x150' %> 
     <% end %>
-    <% if post_count >= 20 %>
-      images[3] = 'trainstar4.png'
+    <% if current_user.posts.count >= 20 %>
+      <%= image_tag 'trainstar4.png', alt: 'Trainstar 4 Badge', size: '150x150' %> 
+    <% else %>
+      <%= image_tag 'before.png', alt: 'Before Badge', size: '150x150' %> 
     <% end %>
-    <% if post_count >= 30 %>
-      images[4] = 'trainstar5.png'
+    <% if current_user.posts.count >= 30 %>
+      <%= image_tag 'trainstar5.png', alt: 'Trainstar 5 Badge', size: '150x150' %> 
+    <% else %>
+      <%= image_tag 'before.png', alt: 'Before Badge', size: '150x150' %> 
     <% end %>
-
-    <%# 画像を横並びに表示 %>
-    <% images.each do |image| %>
-      <%= image_tag asset_path(image), size: "250x250", alt: "Badge" %>
-    <% end %>
-
   </div>
 </div>
