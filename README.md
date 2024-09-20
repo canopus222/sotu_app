@@ -66,9 +66,9 @@ SNS、個人のネットワーク、そして RUNTEQ のようなコミュニテ
 | 認証           | Sorcery ・ Google OAuth  | 
 
 ## 🚆 画面遷移
-https://www.figma.com/design/iewJKSHJ3DcvvrDS1VtBI5/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3Trainspotter.?t=SRsAnM1sRJ6Aucii-0
+https://www.figma.com/design/zs7G6xVJ5TL1VsfI3zKSdT/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3Trainspotter.-ver1?node-id=0-1&node-type=canvas&t=BXqY7fXc7r4Mx75c-0
 
 ## 🚆 ER図
-[![Image from Gyazo](https://i.gyazo.com/f4145e4ceb982839075cda7d3cca6ebe.png)](https://gyazo.com/f4145e4ceb982839075cda7d3cca6ebe)
+[![Image from Gyazo](https://i.gyazo.com/4bfac46e86c35dbb673d59c30f322bf8.png)](https://gyazo.com/4bfac46e86c35dbb673d59c30f322bf8)
 
 https://dbdiagram.io/d/6699e3468b4bb5230ec32ca4
