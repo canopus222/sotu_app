@@ -49,6 +49,15 @@ class PostsController < ApplicationController
       @prefectures = Prefecture.all
       @lines = Line.all
 
+      # 駅名と路線名を再設定して、フォームに正しく表示されるようにする
+      if @post.station
+        @post.station_id = "#{@post.station.name} (ID: #{@post.station.id})"
+      end
+
+      if @post.line
+        @post.line_id = "#{@post.line.name} (ID: #{@post.line.id})"
+      end
+
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
