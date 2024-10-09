@@ -44,6 +44,11 @@ class PostsController < ApplicationController
   
       redirect_to posts_path
     else
+      # 投稿失敗時も必要なデータをセット
+      @stations = Station.all
+      @prefectures = Prefecture.all
+      @lines = Line.all
+
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Post.model_name.human)
       render :new, status: :unprocessable_entity
     end
