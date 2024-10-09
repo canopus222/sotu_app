@@ -22,7 +22,7 @@ class PasswordResetsController < ApplicationController
   # パスワードリセットフォーム
   def edit
     @token = params[:id]
-    @user = User.load_from_reset_password_token(params[:id])
+    @user = User.load_from_reset_password_token(@token)
 
     # ユーザーがいなければログインページへ遷移
     if @user.blank?
@@ -34,7 +34,7 @@ class PasswordResetsController < ApplicationController
   def update
     @token = params[:id]
     # params に含まれるトークンからユーザを特定
-    @user = User.load_from_reset_password_token(params[:id])
+    @user = User.load_from_reset_password_token(@token)
 
     # ユーザが見つからない場合
     if @user.blank?
