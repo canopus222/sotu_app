@@ -11,7 +11,7 @@
     <div class="max-w-screen-3xl mx-auto">
       <div class="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-5 mt-4">
         <% if @posts.present? %>
-          <!-- render @posts によって、各投稿に対して app/views/posts/_post.html.erb が呼び出され、部分テンプレートとして使われます -->
+          <!-- render @posts によって、各投稿に対して app/views/posts/_post.html.erb が呼び出され、部分テンプレートとして使用 -->
           <%= render @posts %>
         <% else %>
           <p>投稿がありません</p>

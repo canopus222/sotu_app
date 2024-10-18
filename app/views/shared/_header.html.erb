@@ -38,6 +38,11 @@
                 <%= current_user.name %>
               </div>
             </li>
+            <li class="share-button-container w-10">
+              <%= link_to "https://twitter.com/share?url=#{CGI.escape('https://trainspotter.onrender.com')}&text=#{CGI.escape('全国の鉄道写真共有サービス - Trainspotter')}&hashtags=Trainspotter", target: "_blank", rel: "noopener noreferrer", title: "Twitterでシェアする" do %>
+                <i class="fa-brands fa-x-twitter fa-lg py-2 px-2" style="color: #5f5434;"></i>
+              <% end %>
+            </li>
             <li><%= link_to "マイページ", mypage_path %></li>
             <li class="md:hidden"><%= link_to "投稿する", new_post_path %></li>
             <li><%= link_to "Favorites一覧", favorites_path %></li>
