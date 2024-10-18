@@ -1,0 +1,540 @@
+# .rubocop_todo.ymlから設定を引き継ぎます。
+inherit_from: .rubocop_todo.yml
+
+# 必要なGemをロードします。
+require:
+  - rubocop-rails # Rails専用のRubocop拡張機能を使用します。
+
+# RuboCopの全般的な設定を行います。
+AllCops:
+  # 指定したパスのファイルをRubocopのチェックから除外します。
+  Exclude:
+    - "vendor/**/*" # ベンダーのコードを除外
+    - "db/**/*" # データベース関連のファイルを除外
+    - "bin/**/*" # 実行可能ファイルを除外
+    - "lib/**/*" # ライブラリのコードを除外
+    - "spec/**/*" # テスト関連のファイルを除外
+    - "config/**/*" # 設定ファイルを除外
+    - "app/validators/attachment_validator.rb" # 特定のバリデータファイルを除外
+    - "node_modules/**/*" # Node.jsの依存関係を除外
+    - "Gemfile" # Gemfile自体を除外
+  DisplayCopNames: true # コップ名を表示する設定
+  NewCops: enable
+
+# Rails関連のコップの設定
+Rails:
+  Enabled: true # Railsのコップを有効にします。
+
+Gemspec/AddRuntimeDependency: # new in 1.65
+  Enabled: true
+Gemspec/DevelopmentDependencies: # new in 1.44
+  Enabled: true
+Lint/DuplicateMatchPattern: # new in 1.50
+  Enabled: true
+Lint/DuplicateSetElement: # new in 1.67
+  Enabled: true
+Lint/ItWithoutArgumentsInBlock: # new in 1.59
+  Enabled: true
+Lint/LiteralAssignmentInCondition: # new in 1.58
+  Enabled: true
+Lint/MixedCaseRange: # new in 1.53
+  Enabled: true
+Lint/RedundantRegexpQuantifiers: # new in 1.53
+  Enabled: true
+Lint/UselessNumericOperation: # new in 1.66
+  Enabled: true
+Lint/UselessRescue: # new in 1.43
+  Enabled: true
+Metrics/CollectionLiteralLength: # new in 1.47
+  Enabled: true
+Style/ArrayIntersect: # new in 1.40
+  Enabled: true
+Style/ComparableClamp: # new in 1.44
+  Enabled: true
+Style/ConcatArrayLiterals: # new in 1.41
+  Enabled: true
+Style/DataInheritance: # new in 1.49
+  Enabled: true
+Style/DirEmpty: # new in 1.48
+  Enabled: true
+Style/ExactRegexpMatch: # new in 1.51
+  Enabled: true
+Style/FileEmpty: # new in 1.48
+  Enabled: true
+Style/MapIntoArray: # new in 1.63
+  Enabled: true
+Style/MapToSet: # new in 1.42
+  Enabled: true
+Style/MinMaxComparison: # new in 1.42
+  Enabled: true
+Style/RedundantArrayConstructor: # new in 1.52
+  Enabled: true
+Style/RedundantConstantBase: # new in 1.40
+  Enabled: true
+Style/RedundantCurrentDirectoryInPath: # new in 1.53
+  Enabled: true
+Style/RedundantDoubleSplatHashBraces: # new in 1.41
+  Enabled: true
+Style/RedundantEach: # new in 1.38
+  Enabled: true
+Style/RedundantFilterChain: # new in 1.52
+  Enabled: true
+Style/RedundantHeredocDelimiterQuotes: # new in 1.45
+  Enabled: true
+Style/RedundantInterpolationUnfreeze: # new in 1.66
+  Enabled: true
+Style/RedundantLineContinuation: # new in 1.49
+  Enabled: true
+Style/RedundantRegexpArgument: # new in 1.53
+  Enabled: true
+Style/RedundantRegexpConstructor: # new in 1.52
+  Enabled: true
+Style/ReturnNilInPredicateMethodDefinition: # new in 1.53
+  Enabled: true
+Style/SendWithLiteralMethodName: # new in 1.64
+  Enabled: true
+Style/SingleLineDoEndBlock: # new in 1.57
+  Enabled: true
+Style/SuperArguments: # new in 1.64
+  Enabled: true
+Style/SuperWithArgsParentheses: # new in 1.58
+  Enabled: true
+Style/YAMLFileRead: # new in 1.53
+  Enabled: true
+Rails/DangerousColumnNames: # new in 2.21
+  Enabled: true
+Rails/EnumSyntax: # new in 2.26
+  Enabled: true
+Rails/EnvLocal: # new in 2.22
+  Enabled: true
+Rails/RedundantActiveRecordAllMethod: # new in 2.21
+  Enabled: true
+Rails/ResponseParsedBody: # new in 2.18
+  Enabled: true
+Rails/SelectMap: # new in 2.21
+  Enabled: true
+Rails/ThreeStateBooleanColumn: # new in 2.19
+  Enabled: true
+Rails/UnusedRenderContent: # new in 2.21
+  Enabled: true
+Rails/WhereRange: # new in 2.25
+  Enabled: true
+
+# 各種メトリクスに関する設定
+Metrics/AbcSize:
+  Max: 30 # ABCサイズ（メソッドの複雑さを測る指標）が30を超えないように制限します。
+
+Metrics/ClassLength:
+  CountComments: false # コメントを含めない
+  Max: 300 # クラスの最大行数を300に制限します。
+
+Metrics/CyclomaticComplexity:
+  Max: 30 # サイクロマティック複雑度が30を超えないように制限します。
+
+Layout/LineLength:
+  Enabled: false # 行の長さに関するチェックを無効にします。
+
+Metrics/MethodLength:
+  CountComments: false # コメントを含めない
+  Max: 30 # メソッドの最大行数を30に制限します。
+
+# アクセサメソッド名に関する設定
+Naming/AccessorMethodName:
+  Exclude:
+    - "app/controllers/**/*" # コントローラーのアクセサメソッド名のチェックを除外します。
+
+# 各種スタイルチェックを無効にします。
+Style/AsciiComments:
+  Enabled: false # ASCIIコメントのスタイルチェックを無効にします。
+
+Style/ClassAndModuleChildren:
+  Enabled: false # クラスとモジュールの子供のスタイルチェックを無効にします。
+
+Style/Documentation:
+  Enabled: false # ドキュメントコメントのスタイルチェックを無効にします。
+
+Style/FrozenStringLiteralComment:
+  Enabled: false # フローズン文字列リテラルのコメントを無効にします。
+
+Style/IfUnlessModifier:
+  Enabled: false # if/unless修飾子のスタイルチェックを無効にします。
+
+Style/WhileUntilModifier:
+  Enabled: false # while/until修飾子のスタイルチェックを無効にします。
+
+Style/ExpandPathArguments:
+  Enabled: false # パス引数の展開に関するスタイルチェックを無効にします。
+
+Style/HashSyntax:
+  Enabled: false # ハッシュの構文に関するスタイルチェックを無効にします。
+
+# Rails特有のルールに関する設定
+Rails/HasManyOrHasOneDependent:
+  Enabled: false # has_manyやhas_oneのdependentオプションのチェックを無効にします。
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false # インデックスなしの一意バリデーションのチェックを無効にします。
+
+# Gemspecに関する設定
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: true # 非推奨の属性割当のチェックを有効にします。
+
+Gemspec/RequireMFA:
+  Enabled: true # マルチファクター認証を要求する設定を有効にします。
+
+# レイアウトに関する設定
+Layout/LineContinuationLeadingSpace:
+  Enabled: true # 行継続時の先頭スペースのチェックを有効にします。
+
+Layout/LineContinuationSpacing:
+  Enabled: true # 行継続時のスペースのチェックを有効にします。
+
+Layout/LineEndStringConcatenationIndentation:
+  Enabled: true # 行末での文字列連結のインデントチェックを有効にします。
+
+Layout/SpaceBeforeBrackets:
+  Enabled: true # 括弧の前のスペースチェックを有効にします。
+
+# Lintに関する設定
+Lint/AmbiguousAssignment:
+  Enabled: true # 曖昧な代入に関するチェックを有効にします。
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: true # 曖昧な演算子の優先順位に関するチェックを有効にします。
+
+Lint/AmbiguousRange:
+  Enabled: true # 曖昧な範囲に関するチェックを有効にします。
+
+Lint/ConstantOverwrittenInRescue:
+  Enabled: true # rescue節で定数が上書きされている場合のチェックを有効にします。
+
+Lint/DeprecatedConstants:
+  Enabled: true # 非推奨の定数に関するチェックを有効にします。
+
+Lint/DuplicateBranch:
+  Enabled: true # 重複した分岐に関するチェックを有効にします。
+
+Lint/DuplicateMagicComment:
+  Enabled: true # 重複したマジックコメントに関するチェックを有効にします。
+
+Lint/DuplicateRegexpCharacterClassElement:
+  Enabled: true # 重複した正規表現の文字クラス要素に関するチェックを有効にします。
+
+Lint/EmptyBlock:
+  Enabled: true # 空のブロックに関するチェックを有効にします。
+
+Lint/EmptyClass:
+  Enabled: true # 空のクラスに関するチェックを有効にします。
+
+Lint/EmptyInPattern:
+  Enabled: true # パターン内の空要素に関するチェックを有効にします。
+
+Lint/IncompatibleIoSelectWithFiberScheduler:
+  Enabled: true # Fiberスケジューラと互換性のないIO選択に関するチェックを有効にします。
+
+Lint/LambdaWithoutLiteralBlock:
+  Enabled: true # リテラルブロックなしのラムダに関するチェックを有効にします。
+
+Lint/NoReturnInBeginEndBlocks:
+  Enabled: true # begin-endブロック内での戻り値がない場合のチェックを有効にします。
+
+Lint/NonAtomicFileOperation:
+  Enabled: true # 非原子的なファイル操作に関するチェックを有効にします。
+
+Lint/NumberedParameterAssignment:
+  Enabled: true # 番号付き引数の代入に関するチェックを有効にします。
+
+Lint/OrAssignmentToConstant:
+  Enabled: true # 定数へのOR代入に関するチェックを有効にします。
+
+Lint/RedundantDirGlobSort:
+  Enabled: true # 不要なディレクトリグロブのソートに関するチェックを有効にします。
+
+Lint/RefinementImportMethods:
+  Enabled: true # リファインメントインポートメソッドに関するチェックを有効にします。
+
+Lint/RequireRangeParentheses:
+  Enabled: true # 範囲に関する括弧の要求に関するチェックを有効にします。
+
+Lint/RequireRelativeSelfPath:
+  Enabled: true # 相対自己パスを要求するチェックを有効にします。
+
+Lint/SymbolConversion:
+  Enabled: true # シンボル変換に関するチェックを有効にします。
+
+Lint/ToEnumArguments:
+  Enabled: true # to_enumの引数に関するチェックを有効にします。
+
+Lint/TripleQuotes:
+  Enabled: true # 三重引用符に関するチェックを有効にします。
+
+Lint/UnexpectedBlockArity:
+  Enabled: true # 予期しないブロックの引数数に関するチェックを有効にします。
+
+Lint/UnmodifiedReduceAccumulator:
+  Enabled: true # reduceの累積値が未修正の場合のチェックを有効にします。
+
+Lint/UselessRuby2Keywords:
+  Enabled: true # 無駄なRuby2キーワードに関するチェックを有効にします。
+
+# Naming（命名規則）に関する設定
+Naming/BlockForwarding:
+  Enabled: true # ブロックフォワーディングに関するチェックを有効にします。
+
+# Security（セキュリティ）に関する設定
+Security/CompoundHash:
+  Enabled: true # 複合ハッシュに関するセキュリティチェックを有効にします。
+
+Security/IoMethods:
+  Enabled: true # IOメソッドに関するセキュリティチェックを有効にします。
+
+# スタイルに関する設定
+Style/ArgumentsForwarding:
+  Enabled: true # 引数フォワーディングに関するスタイルチェックを有効にします。
+
+Style/CollectionCompact:
+  Enabled: true # コレクションのコンパクト化に関するスタイルチェックを有効にします。
+
+Style/DocumentDynamicEvalDefinition:
+  Enabled: true # 動的評価定義に関するスタイルチェックを有効にします。
+
+Style/EmptyHeredoc:
+  Enabled: true # 空のヒアドキュメントに関するスタイルチェックを有効にします。
+
+Style/EndlessMethod:
+  Enabled: true # 終わらないメソッドに関するスタイルチェックを有効にします。
+
+Style/EnvHome:
+  Enabled: true # 環境変数HOMEに関するスタイルチェックを有効にします。
+
+Style/FetchEnvVar:
+  Enabled: true # 環境変数の取得に関するスタイルチェックを有効にします。
+
+Style/FileRead:
+  Enabled: true # ファイル読み込みに関するスタイルチェックを有効にします。
+
+Style/FileWrite:
+  Enabled: true # ファイル書き込みに関するスタイルチェックを有効にします。
+
+Style/HashConversion:
+  Enabled: true # ハッシュ変換に関するスタイルチェックを有効にします。
+
+Style/HashExcept:
+  Enabled: true # ハッシュの除外に関するスタイルチェックを有効にします。
+
+Style/IfWithBooleanLiteralBranches:
+  Enabled: true # 真偽値リテラルブランチを含むifに関するスタイルチェックを有効にします。
+
+Style/InPatternThen:
+  Enabled: true # パターンマッチに関するスタイルチェックを有効にします。
+
+Style/MagicCommentFormat:
+  Enabled: true # マジックコメントのフォーマットに関するスタイルチェックを有効にします。
+
+Style/MapCompactWithConditionalBlock:
+  Enabled: true # 条件付きブロックを含むマップのコンパクト化に関するスタイルチェックを有効にします。
+
+Style/MapToHash:
+  Enabled: true # マップをハッシュに変換することに関するスタイルチェックを有効にします。
+
+Style/MultilineInPatternThen:
+  Enabled: true # 複数行にわたるパターンマッチに関するスタイルチェックを有効にします。
+
+Style/NegatedIfElseCondition:
+  Enabled: true # 否定的なif-else条件に関するスタイルチェックを有効にします。
+
+Style/NestedFileDirname:
+  Enabled: true # ネストされたファイルのディレクトリ名に関するスタイルチェックを有効にします。
+
+Style/NilLambda:
+  Enabled: true # nilラムダに関するスタイルチェックを有効にします。
+
+Style/NumberedParameters:
+  Enabled: true # 番号付き引数に関するスタイルチェックを有効にします。
+
+Style/NumberedParametersLimit:
+  Enabled: true # 番号付き引数の制限に関するスタイルチェックを有効にします。
+
+Style/ObjectThen:
+  Enabled: true # object.thenに関するスタイルチェックを有効にします。
+
+Style/OpenStructUse:
+  Enabled: true # OpenStructの使用に関するスタイルチェックを有効にします。
+
+Style/OperatorMethodCall:
+  Enabled: true # 演算子メソッドの呼び出しに関するスタイルチェックを有効にします。
+
+Style/QuotedSymbols:
+  Enabled: true # 引用されたシンボルに関するスタイルチェックを有効にします。
+
+Style/RedundantArgument:
+  Enabled: true # 不要な引数に関するスタイルチェックを有効にします。
+
+Style/RedundantInitialize:
+  Enabled: true # 不要な初期化に関するスタイルチェックを有効にします。
+
+Style/RedundantSelfAssignmentBranch:
+  Enabled: true # 冗長な自己代入ブランチに関するスタイルチェックを有効にします。
+
+Style/RedundantStringEscape:
+  Enabled: true # 冗長な文字列エスケープに関するスタイルチェックを有効にします。
+
+Style/SelectByRegexp:
+  Enabled: true # 正規表現による選択に関するスタイルチェックを有効にします。
+
+Style/StringChars:
+  Enabled: true # 文字列の文字に関するスタイルチェックを有効にします。
+
+Style/SwapValues:
+  Enabled: true # 値のスワップに関するスタイルチェックを有効にします。
+
+# Rails特有のルールに関する設定
+Rails/ActionControllerFlashBeforeRender:
+  Enabled: true # フラッシュメッセージを表示する前のチェックを有効にします。
+
+Rails/ActionControllerTestCase:
+  Enabled: true # ActionControllerのテストケースに関するチェックを有効にします。
+
+Rails/ActionOrder:
+  Enabled: false # アクションの順序に関するチェックを無効にします。
+
+Rails/ActiveRecordCallbacksOrder:
+  Enabled: true # ActiveRecordのコールバックの順序に関するチェックを有効にします。
+
+Rails/ActiveSupportOnLoad:
+  Enabled: true # ActiveSupportのon_loadに関するチェックを有効にします。
+
+Rails/AddColumnIndex:
+  Enabled: true # カラムインデックス追加に関するチェックを有効にします。
+
+Rails/AfterCommitOverride:
+  Enabled: true # after_commitオーバーライドに関するチェックを有効にします。
+
+Rails/AttributeDefaultBlockValue:
+  Enabled: true # 属性のデフォルトブロック値に関するチェックを有効にします。
+
+Rails/CompactBlank:
+  Enabled: true # 空白のコンパクト化に関するチェックを有効にします。
+
+Rails/DeprecatedActiveModelErrorsMethods:
+  Enabled: false # 非推奨のActiveModelエラー方法に関するチェックを無効にします。
+
+Rails/DotSeparatedKeys:
+  Enabled: true # ドット区切りのキーに関するチェックを有効にします。
+
+Rails/DuplicateAssociation:
+  Enabled: true # 重複したアソシエーションに関するチェックを有効にします。
+
+Rails/DuplicateScope:
+  Enabled: true # 重複したスコープに関するチェックを有効にします。
+
+Rails/DurationArithmetic:
+  Enabled: true # 時間の算術に関するチェックを有効にします。
+
+Rails/EagerEvaluationLogMessage:
+  Enabled: true # 貪欲な評価のログメッセージに関するチェックを有効にします。
+
+Rails/ExpandedDateRange:
+  Enabled: true # 拡張された日付範囲に関するチェックを有効にします。
+
+Rails/FindById:
+  Enabled: true # find_by_idメソッドに関するチェックを有効にします。
+
+Rails/FreezeTime:
+  Enabled: true # 時間のフリーズに関するチェックを有効にします。
+
+Rails/I18nLazyLookup:
+  Enabled: true # I18nの遅延ルックアップに関するチェックを有効にします。
+
+Rails/I18nLocaleAssignment:
+  Enabled: true # I18nのロケールの割り当てに関するチェックを有効にします。
+
+Rails/I18nLocaleTexts:
+  Enabled: false # I18nロケールテキストに関するチェックを無効にします。
+
+Rails/IgnoredColumnsAssignment:
+  Enabled: true # 無視されたカラムの割り当てに関するチェックを有効にします。
+
+Rails/Inquiry:
+  Enabled: true # 問い合わせメソッドに関するチェックを有効にします。
+
+Rails/MailerName:
+  Enabled: true # メイラー名に関するチェックを有効にします。
+
+Rails/MatchRoute:
+  Enabled: true # ルートの一致に関するチェックを有効にします。
+
+Rails/MigrationClassName:
+  Enabled: true # マイグレーションクラス名に関するチェックを有効にします。
+
+Rails/NegateInclude:
+  Enabled: true # 否定的なincludeに関するチェックを有効にします。
+
+Rails/Pluck:
+  Enabled: true # pluckメソッドに関するチェックを有効にします。
+
+Rails/PluckInWhere:
+  Enabled: true # where句内のpluckメソッドに関するチェックを有効にします。
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+  Enabled: true # belongs_toの冗長な存在確認バリデーションに関するチェックを有効にします。
+
+Rails/RedundantTravelBack:
+  Enabled: true # 冗長な旅行の戻りに関するチェックを有効にします。
+
+Rails/RenderInline:
+  Enabled: true # インラインレンダリングに関するチェックを有効にします。
+
+Rails/RenderPlainText:
+  Enabled: true # プレーンテキストのレンダリングに関するチェックを有効にします。
+
+Rails/RootJoinChain:
+  Enabled: true # ルート結合チェーンに関するチェックを有効にします。
+
+Rails/RootPathnameMethods:
+  Enabled: true # ルートのパス名メソッドに関するチェックを有効にします。
+
+Rails/RootPublicPath:
+  Enabled: true # ルートの公開パスに関するチェックを有効にします。
+
+Rails/ShortI18n:
+  Enabled: true # 短いI18nキーに関するチェックを有効にします。
+
+Rails/SquishedSQLHeredocs:
+  Enabled: true # スクイーズされたSQLヒアドキュメントに関するチェックを有効にします。
+
+Rails/StripHeredoc:
+  Enabled: true # ヒアドキュメントのストリップに関するチェックを有効にします。
+
+Rails/TimeZoneAssignment:
+  Enabled: true # タイムゾーンの割り当てに関するチェックを有効にします。
+
+Rails/ToFormattedS:
+  Enabled: true # フォーマットされた文字列への変換に関するチェックを有効にします。
+
+Rails/ToSWithArgument:
+  Enabled: true # 引数付きのto_sメソッドに関するチェックを有効にします。
+
+Rails/TopLevelHashWithIndifferentAccess:
+  Enabled: true # indifferent accessを持つトップレベルハッシュに関するチェックを有効にします。
+
+Rails/TransactionExitStatement:
+  Enabled: false # トランザクションのexit文に関するチェックを無効にします。
+
+Rails/UnusedIgnoredColumns:
+  Enabled: true # 未使用の無視されたカラムに関するチェックを有効にします。
+
+Rails/WhereEquals:
+  Enabled: true # where句の等価条件に関するチェックを有効にします。
+
+Rails/WhereExists:
+  Enabled: true # where句の存在条件に関するチェックを有効にします。
+
+Rails/WhereMissing:
+  Enabled: true # where句の欠落条件に関するチェックを有効にします。
+
+Rails/WhereNot:
+  Enabled: true # where句の否定条件に関するチェックを有効にします。
+
+Rails/WhereNotWithMultipleConditions:
+  Enabled: true # 複数条件を持つwhere句の否定条件に関するチェックを有効にします。
