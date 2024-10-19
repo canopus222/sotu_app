@@ -5,7 +5,14 @@ Rails.application.config.sorcery.configure do |config|
   config.external_providers = [:google]
   config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
   config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
-  config.google.callback_url = Settings.sorcery[:google_callback_url]
+
+  # 環境によってcallback_urlを設定
+  if Rails.env.development?
+    config.google.callback_url = 'http://localhost:3000/oauth/callback?provider=google'
+  elsif Rails.env.production?
+    config.google.callback_url = 'https://trainspotter.onrender.com/oauth/callback?provider=google'
+  end
+
   config.google.user_info_mapping = { email: 'email', name: 'name' }
 
   config.user_config do |user|
