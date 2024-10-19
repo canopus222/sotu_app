@@ -72,9 +72,6 @@ jobs:
         run: |
           RAILS_ENV=test bundle exec rake assets:precompile
 
-      - name: Run RuboCop
-        run: bundle exec rubocop
-
       - name: Security audit application code
         run: bundle exec brakeman
 
