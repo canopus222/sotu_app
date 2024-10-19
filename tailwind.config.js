@@ -6,6 +6,7 @@ module.exports = {
     './app/javascript/**/*.js'
   ],
   theme: {
+    darkMode: false,
     extend: {
       colors: {
         'custom-white': '#ffffff', // 白色を追加
@@ -16,4 +17,7 @@ module.exports = {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    darkTheme: false, // ダークモードをONにする場合は削除
+  },
 }
