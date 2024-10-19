@@ -4,5 +4,5 @@ test:
   database: myapp_test
   username: postgres
   password: password
-  host: localhost
+  host: db
   pool: 5
