@@ -61,7 +61,3 @@ jobs:
 
       - name: Install gems
         run: bundle install --path vendor/bundle --jobs 4
-
-      - name: Precompile assets
-        run: |
-          RAILS_ENV=test bundle exec rake assets:precompile
