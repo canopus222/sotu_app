@@ -29,6 +29,11 @@ module Myapp
       g.helper false             # helper ファイルを作成しない
       g.test_framework false     # test ファイルを作成しない
       g.skip_routes true         # ルーティングの記述を作成しない
+      g.test_framework :rspec, # ここから5行を追記
+        fixtures: false, # テストDBにレコードを作るfixtureの作成をスキップ(FactoryBotを使用するため)
+        view_specs: false, # ビューファイル用のスペックを作成しない
+        helper_specs: false, # ヘルパーファイル用のスペックを作成しない
+        routing_specs: false # routes.rb用のスペックファイル作成しない
     end  
     
     # デフォルト言語設定
