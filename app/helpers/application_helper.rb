@@ -35,4 +35,3 @@ module ApplicationHelper
     }
   end
 end
-
