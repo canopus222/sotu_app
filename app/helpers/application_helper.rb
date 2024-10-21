@@ -13,15 +13,15 @@ module ApplicationHelper
       site: 'Trainspotter',
       title: '',
       reverse: true,
-      separator: '',
+      separator: '|',
       description: '全国の鉄道写真を共有するサービスです。',
       keywords: '鉄道, 写真, 電車, Train, 駅, 路線',
-      canonical: https://trainspotter.onrender.com,
+      canonical: "https://trainspotter.onrender.com",
       og: {
         title: :title,
         description: :description,
         type: 'website',
-        url: https://trainspotter.onrender.com,
+        url: "https://trainspotter.onrender.com",
         image: image_url('ogp.png'),
         site_name: ''
       },
