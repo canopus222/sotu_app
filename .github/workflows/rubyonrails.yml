@@ -61,3 +61,6 @@ jobs:
 
       - name: Install gems
         run: bundle install --path vendor/bundle --jobs 4
+
+      - name: Run RSpec tests
+        run: bundle exec rspec
