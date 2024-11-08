@@ -28,7 +28,7 @@
               <% else %>
                 <p>都道府県を選択してください</p>
               <% end %>
-           </div>
+            </div>
       
             <div class="mb-4">
               <%= f.label :line_id, "路線名※一致する候補から選択", class: "mb-1 inline-block text-lg text-gray-800", for: 'line_input' %>
@@ -39,7 +39,7 @@
                     <option id="<%= line.id %>" value="<%= "#{line.name} (ID: #{line.id})" %>"></option>
                   <% end %>
                 <% else %>
-                 <option value="">No lines available</option>
+                  <option value="">No lines available</option>
                 <% end %>
               </datalist>
             </div>
