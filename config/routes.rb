@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   # パスワードリセット
   resources :password_resets, only: %i[new create edit update]
 
-  # Google 認証
+  # Google認証。Googleからの応答を受け取るためのルート
   post "oauth/callback" => "oauths#callback"
   get "oauth/callback" => "oauths#callback"
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
