@@ -1,11 +1,12 @@
 class User < ApplicationRecord
+  # Sorceryを使った認証を有効にする
   authenticates_with_sorcery!
 
   mount_uploader :avatar, AvatarUploader
 
   has_many :badges
   
-  # Google 認証
+  # Google認証。ユーザーが複数の認証方法を持てるようにする
   has_many :authentications, dependent: :destroy
   accepts_nested_attributes_for :authentications
 
