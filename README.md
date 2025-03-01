@@ -1,6 +1,6 @@
 # README
 ## 🚆 Trainspotter
-#### ▶サービスURL：[Trainspotter](https://trainspotter.onrender.com)
+#### ▶サービスURL（サービス停止中。Topページのみアクセス可能）：[Trainspotter](https://trainspotter.onrender.com)
 
 ![Trainspotter](https://i.gyazo.com/cc09a9bc48c1dbf730c9ed56b0c095a1.png)
 
@@ -113,3 +113,56 @@ https://dbdiagram.io/d/6699e3468b4bb5230ec32ca4
 
 ## 🚆 このアプリに関する記事
 
+★マークは特に時間がかかった内容や苦労した内容になります
+
+[データーベースを確認したい](https://qiita.com/wa-chan222/items/9a3854b3c6c01ef23f28)
+
+★[【Error】ログアウトボタンが反応しない](https://qiita.com/wa-chan222/items/62a13a64cf8da57672bd)
+
+★[【Error】migrateがうまくいかずusersテーブルにnameだけ登録できない問題](https://qiita.com/wa-chan222/items/2877ac94456fe19e4a3c)
+
+★[【豆知識】マイグレーションファイル生成時userはinteger?references?＆名称変更注意点など](https://qiita.com/wa-chan222/items/4420089687e853f18a25)
+
+★[【豆知識とError】Google認証周り。APIキーを含む秘匿情報について](https://qiita.com/wa-chan222/items/9e4eb25be9f21d180b5f)
+
+[【豆知識】リセットパスワードの流れを改めて整理してみる](https://qiita.com/wa-chan222/items/bf1a6e7f8eb38eb154f2)
+
+★[【豆知識】 Google のクライアント ID やシークレットにアクセスする方法について](https://qiita.com/wa-chan222/items/069ed984c2b9cd1a63d0)
+
+[【豆知識+Error】コードがあっていても少し位置が違うだけでエラーになってしまうrenderのお話](https://qiita.com/wa-chan222/items/13375cb9de3d9ea11b2a)
+
+★[【豆知識】Google認証APIキーを含む秘匿情報ENVコードで管理。+credentialとの違い](https://qiita.com/wa-chan222/items/9ae3c395591685e79361)
+
+★[【豆知識】.gitignoreとconfigとの関係性について](https://qiita.com/wa-chan222/items/5c672c2e77574f676b90)
+
+★[【Error】`rails db:migrate` コマンドを実行した際に発生したエラー。タイムスタンプについて知る](https://qiita.com/wa-chan222/items/cd122957aea530523a4b)
+
+[【豆知識】has_manyの設定について少し理解](https://qiita.com/wa-chan222/items/9995cf5b49cc5814cac5)
+
+[【豆知識】Tailwind背景色が何かおかしかった](https://qiita.com/wa-chan222/items/2c379949c31fb13ac49e)
+
+★[【豆知識とError】belongs_toとvalidatesのちょっとした誤解](https://qiita.com/wa-chan222/items/dcd7439d5e124643ea6c)
+
+[【豆知識】CSVファイルインポートを少し学ぶ](https://qiita.com/wa-chan222/items/06e706c3536366a3ccbb)
+
+[【Error】古いCSSやjavascriptがのこっていてうまくいかない](https://qiita.com/wa-chan222/items/2b5092d6bd35de4ec87c)
+
+[【Error】シングルクォートとダブルクォート。Rubocopの自動修正機能](https://qiita.com/wa-chan222/items/e7c3f15bde7c242f7e12)
+
+[【豆知識】条件分岐。if とunless と演算子](https://qiita.com/wa-chan222/items/6e2ccdf31a8878cd2fd0)
+
+[【Error】ラベルのエラーについて](https://qiita.com/wa-chan222/items/2053b69ac2880526a0ec)
+
+[【豆知識】Render無料枠終了後のその先](https://qiita.com/wa-chan222/items/d6f5d946cf9a87508e04)
+
+[【学習】AWSのS3設定 画像関係①](https://qiita.com/wa-chan222/items/5edbfa78d155bcc3171c)
+
+★[【Error】AWS画像関係～原因が全く違った？件](https://qiita.com/wa-chan222/items/bca50912d4f001bf8257)
+
+[【学習】MVP後、わからなかった部分](https://qiita.com/wa-chan222/items/34ce21d085ca07d67450)
+
+[【学習】Githubプロジェクト紐づけ](https://qiita.com/wa-chan222/items/fcb26588b5e6f1838fd1)
+
+[【学習】静的OGPの設定。](https://qiita.com/wa-chan222/items/55e58b9cb4bf2bb2e7c8)
+
+[【Error・学習】RailsプロジェクトにGitHub Actions（Rspec）](https://qiita.com/wa-chan222/items/53e832270140507f4e1c)
